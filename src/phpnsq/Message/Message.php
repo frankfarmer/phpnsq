@@ -146,8 +146,8 @@ class Message implements \JsonSerializable
     public function jsonSerialize()
     {
         return [
-            'body' => $this->body,
             'timestamp' => $this->timestamp,
+            'body' => $this->body,
         ];
     }
 }
