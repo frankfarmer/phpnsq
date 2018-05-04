@@ -2,7 +2,7 @@
 
 namespace OkStuff\PhpNsq\Message;
 
-class Message
+class Message implements \JsonSerializable
 {
     private $decoded = false;
     private $id;
@@ -141,5 +141,13 @@ class Message
         $this->delegate = $delegate;
 
         return $this;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'body' => $this->body,
+            'timestamp' => $this->timestamp,
+        ];
     }
 }
